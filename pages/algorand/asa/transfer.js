@@ -26,18 +26,7 @@ export default function ASATransferPage({accountInfo}) {
       name: "Test Account",
       address: test_account.addr,
     },
-    {
-      name: "Satinder Sharma",
-      address: "4CP3UQHMP2NUWOO7BNGLPVQCPLS23TP4F5CUA5AWVL2VMK7VTXL4E2Q4F4",
-    },
-    {
-      name: "Jelly Saini",
-      address: "TJUNGFBV6YYSOHA6TG23OGDZIHOQQA2BT5CGVF5HYZX4JAL6K2QQKY7GAU",
-    },
-    {
-      name: "John Q Smith",
-      address: "E46ZM4BTC3MPVF3WH2T4GRIHI4N2NT7ZXGDFUSMT76FK634TXFB7GOC5HQ",
-    },
+    
   ];
 
   const asset_array = [
@@ -118,7 +107,7 @@ export default function ASATransferPage({accountInfo}) {
           toast.info("OPTIN the test account");
 
           try {
-            const assetId = values.asset; // Note: change the asset ID if it was different for your new asset
+            const assetId = parseInt(values.asset); // Note: change the asset ID if it was different for your new asset
 
             const sender = test_account.addr;
             const recipient = sender; // transaction to yourself
@@ -179,7 +168,7 @@ export default function ASATransferPage({accountInfo}) {
       const recipient = values.account;
       const revocationTarget = undefined;
       const closeRemainderTo = undefined;
-      const assetId = values.asset; // Correct asset ID?
+      const assetId = parseInt(values.asset); // Correct asset ID?
       const amount = values.amount; // Transfer 100 units of asset aUSD
       const note = algosdk.encodeObj("gifting ASA");
       const transferTxn = algosdk.makeAssetTransferTxnWithSuggestedParams(
