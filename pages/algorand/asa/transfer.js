@@ -7,7 +7,7 @@ import styles from "@/styles/Form.module.css";
 import algosdk from "algosdk";
 import { waitForConfirmation } from "@/helpers/utils";
 
-export default function ASATransferPage() {
+export default function ASATransferPage({accountInfo}) {
   const master_account = algosdk.mnemonicToSecretKey(
     process.env.ALGO_FAUCET_PASSPHRASE_
   );
@@ -252,11 +252,8 @@ export default function ASATransferPage() {
           <div>
             <label htmlFor="asset">ASA</label>
             <select name="asset" id="asset" onChange={handleInputChange}>
-              {asset_array.map((ast) => (
-                <>
-                  <option value={ast.index}>{ast.name}</option>
-                </>
-              ))}
+              {accountInfo["created-assets"] && accountInfo["created-assets"].map((ast) => <option value={ast.index} key={ast.index} >{ast.params.name}</option>
+              )}
             </select>
           </div>
           <div>
@@ -276,4 +273,19 @@ export default function ASATransferPage() {
       </form>
     </Layout>
   );
+}
+
+export async function getServerSideProps(){
+  const baseServer = process.env.ALGO_SERVER_;
+  const port = "";
+  const token = {
+    "X-API-Key": process.env.ALGO_TOKEN_,
+  };
+  const master_account = algosdk.mnemonicToSecretKey(process.env.ALGO_FAUCET_PASSPHRASE_)
+  // console.log(master_account.addr)
+  const algodClient = new algosdk.Algodv2(token, baseServer, port);
+  let accountInfo = await algodClient.accountInformation(master_account.addr).do();
+  return {
+    props:{accountInfo}
+  }
 }
