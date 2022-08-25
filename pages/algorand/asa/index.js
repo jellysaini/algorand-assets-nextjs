@@ -25,7 +25,7 @@ export default function ASAPage() {
     unitName: "AR",
     assetName: "Algorand Asset",
     note: "ASA Note",
-    assetURL: "https://images.unsplash.com/photo-1599690925058-90e1a0b56154?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    assetURL: "https://images.unsplash.com/photo-1599690925058-90e1a0b56154",
     from: process.env.ALGO_FAUCET_ACCOUNT_ADDRESS_,
     manager: process.env.ALGO_FAUCET_ACCOUNT_ADDRESS_,
     reserve: process.env.ALGO_FAUCET_ACCOUNT_ADDRESS_,
