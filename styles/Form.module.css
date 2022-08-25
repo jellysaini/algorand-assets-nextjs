@@ -1,0 +1,58 @@
+.form label {
+  display: block;
+}
+
+.form input, .form select  {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+}
+
+.form_check{
+  position: relative;
+display: block;
+padding-left: 1.25rem;
+}
+
+
+.form_check_input {
+  position: absolute;
+  margin-top: .3rem;
+  margin-left: -1.25rem;
+}
+.form input[type='checkbox'] {
+  height: 20px;
+}
+
+.form_check_label{
+  margin-bottom: 0;
+}
+.form textarea {
+  width: 100%;
+  height: 150px;
+}
+
+.form input[type='submit'] {
+  display: block;
+  width: 100%;
+  margin: 20px 0 30px;
+}
+
+.form .file {
+  border: 1px #ccc solid;
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
